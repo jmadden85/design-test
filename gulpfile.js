@@ -17,7 +17,6 @@ gulp.task('add', function(){
 gulp.task('commit', function () {
   var date = new Date();
   return gulp.src(['./*.psd', './*.js'])
-    .pipe(git.add())
     .pipe(git.commit(date));
 });
 
@@ -28,9 +27,9 @@ gulp.task('push', function(){
     if (err) throw err;
   });
 });
-
+//def
 gulp.task('git', function () {
-  runSequence('commit', 'push');
+  runSequence('add', 'commit', 'push');
 });
 
 gulp.task('default', ['watch']);
