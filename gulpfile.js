@@ -16,5 +16,4 @@ gulp.task('git', function () {
   .pipe(git.commit(date))
   .pipe(git.push());
 });
-//abcdd
 gulp.task('default', ['watch']);
