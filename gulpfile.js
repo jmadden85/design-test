@@ -21,7 +21,7 @@ gulp.task('push', function(){
     if (err) throw err;
   });
 });
-
+//abcdefg
 gulp.task('git', function () {
   runSequence('commit', 'push');
 });
