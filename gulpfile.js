@@ -4,16 +4,16 @@ var git = require('gulp-git');
 
 gulp.task('build', function () {
   var date = new Date();
-  return gulp.src('./*')
+  return gulp.src('./*.psd')
     .pipe(git.add())
     .pipe(git.commit(date));
-    git.push('origin', 'master', function (err) {
+    return git.push('origin', 'master', function (err) {
       if (err) throw err;
     });
 });
 
 gulp.task('watch', function () {
-    watch('designs/*', function (files, cb) {
+    watch('./*', function (files, cb) {
         gulp.start('build', cb);
     });
 });
