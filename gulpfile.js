@@ -10,31 +10,11 @@ gulp.task('watch', function () {
 });
 
 gulp.task('git', function () {
+  var date = new Date();
   gulp.src('./')
   .pipe(git.add())
   .pipe(git.commit('test'))
   .pipe(git.push());
 });
 
-// gulp.task('add', function(){
-//   return gulp.src(['./*.psd', './*.js'])
-//   .pipe(git.add());
-// });
-
-// gulp.task('commit', function () {
-//   var date = new Date();
-//   return gulp.src(['./*.psd', './*.js'])
-//     .pipe(git.commit(date));
-// });
-
-// gulp.task('push', function(){
-//   git.push('origin', 'master', {args: " -f"}, function (err) {
-//     if (err) throw err;
-//   });
-// });
-// gulp.task('git', function () {
-//   runSequence('add', 'commit', 'push');
-// });
-
-/d
 gulp.task('default', ['watch']);
