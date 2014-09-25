@@ -16,8 +16,10 @@ gulp.task('commit', function () {
     .pipe(git.commit(date));
 });
 
+// Run git push with options
+// branch is the remote branch to push to
 gulp.task('push', function(){
-  git.push('origin', 'master', function (err) {
+  git.push('origin', 'master', {args: " -f"}, function (err) {
     if (err) throw err;
   });
 });
