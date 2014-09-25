@@ -7,7 +7,8 @@ gulp.task('build', function () {
   return gulp.src('./*.psd')
     .pipe(git.add())
     .pipe(git.commit(date));
-    return git.push('origin', 'master', function (err) {
+    git.push('origin', 'master', function (err) {
+      console.log('test');
       if (err) throw err;
     });
 });
