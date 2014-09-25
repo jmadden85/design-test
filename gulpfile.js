@@ -3,10 +3,9 @@ var watch = require('gulp-watch');
 var git = require('gulp-git');
 var runSequence = require('run-sequence');
 
-gulp.task('watch', function (cb) {
+gulp.task('watch', function () {
     watch('./*', function (files, cb) {
-        // gulp.start('commit', cb);
-        runSequence('commit', 'push', cb);
+        gulp.start('commit', cb);
     });
 });
 
@@ -17,10 +16,10 @@ gulp.task('commit', function () {
     .pipe(git.commit(date));
 });
 
-gulp.task('push', function(){
-  git.push('origin', 'master', function (err) {
-    if (err) throw err;
-  });
-});
+// gulp.task('push', function(){
+//   git.push('origin', 'master', function (err) {
+//     if (err) throw err;
+//   });
+// });
 
 gulp.task('default', ['watch']);
