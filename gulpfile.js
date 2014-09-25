@@ -27,5 +27,5 @@ gulp.task('push', function(){
 gulp.task('git', function () {
   runSequence('commit', 'push');
 });
-//aajfaeljefw
+
 gulp.task('default', ['watch']);
