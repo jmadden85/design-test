@@ -14,6 +14,7 @@ gulp.task('commit', function () {
   return gulp.src(['./*.psd', './*.js'])
     .pipe(git.add())
     .pipe(git.commit(date));
+    gulp.start('push', cb);
 });
 
 // gulp.task('push', function(){
