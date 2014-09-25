@@ -4,9 +4,14 @@ var git = require('gulp-git');
 var runSequence = require('run-sequence');
 
 gulp.task('watch', function () {
-    watch('./*', function (files, cb) {
+    watch(['./*.psd', './*.js'], function (files, cb) {
         gulp.start('git', cb);
     });
+});
+
+gulp.task('add', function(){
+  return gulp.src(['./*.psd', './*.js'])
+  .pipe(git.add());
 });
 
 gulp.task('commit', function () {
