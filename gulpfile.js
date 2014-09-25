@@ -4,7 +4,7 @@ var git = require('gulp-git');
 var runSequence = require('run-sequence');
 
 gulp.task('watch', function () {
-    watch(['./*.psd', './*.ai'], function (files, cb) {
+    watch(['*.psd', '*.ai'], function (files, cb) {
         gulp.start('git', cb);
     });
 });
@@ -16,4 +16,5 @@ gulp.task('git', function () {
   .pipe(git.commit(date))
   .pipe(git.push());
 });
+
 gulp.task('default', ['watch']);
