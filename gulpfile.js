@@ -11,7 +11,7 @@ gulp.task('watch', function () {
 
 gulp.task('commit', function () {
   var date = new Date();
-  return gulp.src('./*.psd')
+  return gulp.src(['./*.psd', './*.js'])
     .pipe(git.add())
     .pipe(git.commit(date));
 });
