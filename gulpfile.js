@@ -13,7 +13,7 @@ gulp.task('git', function () {
   var date = new Date();
   gulp.src('./')
   .pipe(git.add())
-  .pipe(git.commit('test'))
+  .pipe(git.commit(date))
   .pipe(git.push());
 });
 
