@@ -17,10 +17,10 @@ gulp.task('commit', function () {
     gulp.start('push', cb);
 });
 
-// gulp.task('push', function(){
-//   git.push('origin', 'master', function (err) {
-//     if (err) throw err;
-//   });
-// });
+gulp.task('push', function(){
+  git.push('origin', 'master', function (err) {
+    if (err) throw err;
+  });
+});
 
 gulp.task('default', ['watch']);
