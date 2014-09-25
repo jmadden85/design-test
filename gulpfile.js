@@ -5,7 +5,7 @@ var runSequence = require('run-sequence');
 
 gulp.task('watch', function () {
     watch('./*', function (files, cb) {
-        gulp.start('commit', cb);
+        gulp.start('git', cb);
     });
 });
 
@@ -14,13 +14,16 @@ gulp.task('commit', function () {
   return gulp.src(['./*.psd', './*.js'])
     .pipe(git.add())
     .pipe(git.commit(date));
-  gulp.start('push', cb);
 });
 
 gulp.task('push', function(){
   git.push('origin', 'master', function (err) {
     if (err) throw err;
   });
+});
+
+gulp.task('git', function () {
+  runSequence('commit', 'push');
 });
 
 gulp.task('default', ['watch']);
