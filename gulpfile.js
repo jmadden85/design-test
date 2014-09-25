@@ -11,10 +11,12 @@ gulp.task('watch', function () {
 
 gulp.task('git', function () {
   var date = new Date();
-  gulp.src('./')
-  .pipe(git.add())
-  .pipe(git.commit(date))
-  .pipe(git.push());
+  return gulp.src(['./*.psd', './*.ai'])
+  .pipe(git.add({args: '--all'}))
+  .pipe(git.commit(date, {args: '-am'}))
+  .pipe(git.push('origin', 'master', {args: " -f"}, function (err) {
+    if (err) throw err;
+  }));
 });
 
 gulp.task('default', ['watch']);
